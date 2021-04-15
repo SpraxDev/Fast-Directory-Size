@@ -1,46 +1,40 @@
-# fast-folder-size
-
-[![ci](https://github.com/simoneb/fast-folder-size/actions/workflows/ci.yml/badge.svg)](https://github.com/simoneb/fast-folder-size/actions/workflows/ci.yml)
-
-Node CLI or module to calculate folder size.
+<p align="center">
+  <a href="https://github.com/SpraxDev/fast-directory-size/actions/workflows/tests.yml">
+    <img alt="Tests" src="https://github.com/SpraxDev/fast-directory-size/actions/workflows/tests.yml/badge.svg">
+  </a>
+  <a href="https://sonarcloud.io/dashboard?id=SpraxDev_fast-directory-size">
+    <img alt="Quality Gate Status"
+         src="https://sonarcloud.io/api/project_badges/measure?project=SpraxDev_fast-directory-size&metric=alert_status">
+  </a>
+</p>
+# fast-directory-size
+Node Module (+CLI) module to calculate the size of a directory.
 
 It uses:
-
-- [Sysinternals DU](https://docs.microsoft.com/en-us/sysinternals/downloads/du) on Windows, automatically downloaded at installation time because the license does not allow redistribution
-- native `du` on other platforms
+* [Sysinternals DU](https://docs.microsoft.com/en-us/sysinternals/downloads/du) on Windows, which is automatically
+  downloaded at during the installation
+* native `du` on other platforms
 
 ## Installation
+```shell
+$ npm i https://github.com/SpraxDev/fast-directory-size.git
+```
 
-```
-npm i fast-folder-size
-```
 
 ## Usage
 
 ### Programmatically
+```TypeScript
+import { getDirectorySize } from 'fast-directory-size';
 
-```js
-const { promisify } = require('util')
-const fastFolderSize = require('fast-folder-size')
-
-// callback
-fastFolderSize('.', (err, bytes) => {
-  if (err) {
-    throw err
-  }
-
-  console.log(bytes)
-})
-
-// promise
-const fastFolderSizeAsync = promisify(fastFolderSize)
-const bytes = await fastFolderSizeAsync('.')
-
-console.log(bytes)
+getDirectorySize('./')
+    .then((size) => {
+      console.log(`${size} bytes`);
+    })
+    .catch((err) => console.error(err));
 ```
 
 ### Command line
-
-```bash
-fast-folder-size .
+```shell
+fast-directory-size ./
 ```
