@@ -11,11 +11,12 @@
   ],
   "homepage": "https://github.com/SpraxDev/fast-directory-size#readme",
   "private": true,
+  "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "scripts": {
     "test": "npm run build && tap",
-    "build": "tsc",
+    "build": "tsc --declaration",
     "prepublish": "npm run build && ts-node src/prepublish.npm.ts"
   },
   "author": "Simone Busoli <simone.busoli@gmail.com>",

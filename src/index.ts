@@ -4,7 +4,7 @@ import { join as joinPath, resolve as resolvePath } from 'path';
 
 // CLI
 if (require.main === module) {
-  fastFolderSize(process.argv[2])
+  getDirectorySize(process.argv[2])
       .then(console.log)
       .catch((err) => {
         console.error(err);
@@ -17,7 +17,7 @@ if (require.main === module) {
  *
  * @return The size of the directory in byte
  */
-export async function fastFolderSize(path: string): Promise<number> {
+export async function getDirectorySize(path: string): Promise<number> {
   return new Promise((resolve, reject) => {
     if (process.platform === 'win32') { // Windows
       exec(`"${resolvePath(joinPath(__dirname, '..', 'bin', 'du.exe'))}" -nobanner -accepteula .`,
