@@ -1,30 +1,46 @@
 {
-  "name": "fast-folder-size",
+  "name": "fast-directory-size",
   "version": "1.1.0",
-  "description": "Node CLI or module to calculate folder size",
-  "main": "index.js",
-  "bin": {
-    "fast-folder-size": "index.js"
-  },
-  "author": "Simone Busoli <simone.busoli@gmail.com>",
+  "description": "Node.js module (+ CLI) to calculate folder size efficient (based on fast-folder-size)",
+  "keywords": [
+    "cross-platform",
+    "directories",
+    "folders",
+    "filesystem",
+    "size-calculation"
+  ],
+  "homepage": "https://github.com/SpraxDev/fast-directory-size#readme",
+  "private": true,
+  "main": "src/index.js",
+  "bin": "src/index.js",
   "scripts": {
     "test": "tap",
-    "postinstall": "node get-sysinternals-du.js"
+    "postinstall": "node src/get-sysinternals-du.js"
   },
-  "keywords": [
-    "fast",
-    "folder",
-    "size"
+  "author": "Simone Busoli <simone.busoli@gmail.com>",
+  "contributors": [
+    {
+      "name": "Christian Koop",
+      "email": "contact@sprax2013.de",
+      "url": "https://github.com/SpraxDev"
+    }
   ],
-  "repository": {
-    "url": "https://github.com/simoneb/fast-folder-size.git"
-  },
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpraxDev/fast-directory-size.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SpraxDev/fast-directory-size/issues"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "dependencies": {
     "unzipper": "^0.10.11"
   },
   "devDependencies": {
-    "eslint": "^7.21.0",
+    "eslint": "^7.24.0",
     "tap": "^15.0.1"
   }
 }
