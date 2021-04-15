@@ -14,7 +14,7 @@
   "main": "dist/index.js",
   "bin": "dist/index.js",
   "scripts": {
-    "test": "tap --ts --no-coverage",
+    "test": "npm run build && tap",
     "build": "tsc",
     "prepublish": "npm run build && ts-node src/prepublish.npm.ts"
   },
