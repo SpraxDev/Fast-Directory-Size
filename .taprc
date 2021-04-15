@@ -1,1 +1,3 @@
-check-coverage: false
+coverage: false
+files:
+  - ./dist/*.test.js
