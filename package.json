@@ -1,6 +1,6 @@
 {
   "name": "fast-directory-size",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Node.js module (+ CLI) to calculate folder size efficient (based on fast-folder-size)",
   "keywords": [
     "cross-platform",
