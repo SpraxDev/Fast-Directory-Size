@@ -21,15 +21,12 @@ if (require.main === module) {
 async function getDirectorySize(path) {
     return new Promise((resolve, reject) => {
         if (process.platform === 'win32') { // Windows
-            child_process_1.exec(`"${path_1.resolve(path_1.join(__dirname, '..', 'bin', 'du.exe'))}" -nobanner -accepteula .`, { cwd: path }, (err, stdout) => {
+            child_process_1.exec(`"${path_1.resolve(path_1.join(__dirname, '..', 'bin', 'du.exe'))}" -nobanner -accepteula -q -c .`, { cwd: path }, (err, stdout) => {
                 if (err)
                     return reject(err);
-                const match = /Size:\s+(.+) bytes/.exec(stdout);
-                if (!match) {
-                    return reject(new Error(`Failed to extract bytes from stdout`));
-                }
-                const size = Number(match[1].replace(/[.,]/g, ''));
-                resolve(size);
+                // The query stats indexes from the end since path can contain commas as well
+                const stats = stdout.split('\n')[1].split(',');
+                resolve(+stats.slice(-2)[0]);
             });
         }
         else if (process.platform === 'darwin') { // Mac
