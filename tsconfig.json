@@ -4,9 +4,6 @@
     "sourceMap": true,
     "outDir": "./dist"
   },
-  "exclude": [
-    "**/*.npm.ts"
-  ],
   "include": [
     "src/**/*.ts"
   ]
