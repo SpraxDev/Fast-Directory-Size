@@ -43,7 +43,7 @@
   "devDependencies": {
     "@tsconfig/node12": "^1.0.7",
     "@types/node": "~12.20.8",
-    "@types/tap": "^15.0.1",
+    "@types/tap": "^15.0.5",
     "@types/unzipper": "^0.10.3",
     "tap": "^15.0.9",
     "ts-node": "^10.0.0",
