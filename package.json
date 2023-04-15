@@ -35,18 +35,19 @@
     "url": "https://github.com/SpraxDev/fast-directory-size/issues"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   },
   "dependencies": {
     "unzipper": "^0.10.11"
   },
   "devDependencies": {
-    "@tsconfig/node12": "^1.0.7",
-    "@types/node": "~12.20.8",
-    "@types/tap": "^15.0.1",
-    "@types/unzipper": "^0.10.3",
-    "tap": "^15.0.9",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.2"
+    "@tsconfig/node18": "^1.0.1",
+    "@types/node": "~18.15.11",
+    "@types/tap": "^15.0.8",
+    "@types/unzipper": "^0.10.5",
+    "tap": "^16.3.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
   }
 }
