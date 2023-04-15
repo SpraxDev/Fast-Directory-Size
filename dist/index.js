@@ -21,7 +21,7 @@ if (require.main === module) {
 async function getDirectorySize(path) {
     return new Promise((resolve, reject) => {
         if (process.platform === 'win32') { // Windows
-            child_process_1.exec(`"${path_1.resolve(path_1.join(__dirname, '..', 'bin', 'du.exe'))}" -nobanner -accepteula -q -c .`, { cwd: path }, (err, stdout) => {
+            (0, child_process_1.exec)(`"${(0, path_1.resolve)((0, path_1.join)(__dirname, '..', 'bin', 'du.exe'))}" -nobanner -accepteula -q -c .`, { cwd: path }, (err, stdout) => {
                 if (err)
                     return reject(err);
                 // The query stats indexes from the end since path can contain commas as well
@@ -30,7 +30,7 @@ async function getDirectorySize(path) {
             });
         }
         else if (process.platform === 'darwin') { // Mac
-            child_process_1.exec(`du -sk .`, { cwd: path }, (err, stdout) => {
+            (0, child_process_1.exec)(`du -sk .`, { cwd: path }, (err, stdout) => {
                 if (err)
                     return reject(err);
                 const match = /^(\d+)/.exec(stdout);
@@ -42,7 +42,7 @@ async function getDirectorySize(path) {
             });
         }
         else { // Linux and everything else
-            child_process_1.exec(`du -sb .`, { cwd: path }, (err, stdout) => {
+            (0, child_process_1.exec)(`du -sb .`, { cwd: path }, (err, stdout) => {
                 if (err)
                     return reject(err);
                 const match = /^(\d+)/.exec(stdout);

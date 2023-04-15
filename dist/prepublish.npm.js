@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -28,17 +32,17 @@ if (process.platform != 'win32')
     process.exit();
 /* Download DU.zip */
 const zipUrl = 'https://download.sysinternals.com/files/DU.zip';
-const exePath = path_1.join(__dirname, '..', 'bin', 'du.exe');
+const exePath = (0, path_1.join)(__dirname, '..', 'bin', 'du.exe');
 console.info(`Downloading 'du' for your system from '${zipUrl}'...`);
-https_1.get(zipUrl, (res) => {
+(0, https_1.get)(zipUrl, (res) => {
     if (res.statusCode != 200) {
         console.error(`Error while downloading '${zipUrl}'`);
         process.exit(1);
     }
-    if (!fs.existsSync(path_1.dirname(exePath))) {
-        fs.mkdirSync(path_1.dirname(exePath));
+    if (!fs.existsSync((0, path_1.dirname)(exePath))) {
+        fs.mkdirSync((0, path_1.dirname)(exePath));
     }
-    res.pipe(unzipper_1.ParseOne(/du\.exe/))
+    res.pipe((0, unzipper_1.ParseOne)(/du\.exe/))
         .pipe(fs.createWriteStream(exePath))
         .on('close', () => {
         console.info(`Successfully downloaded 'du'!`);
