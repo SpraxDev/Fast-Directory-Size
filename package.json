@@ -42,7 +42,7 @@
     "unzipper": "^0.10.14"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.0",
+    "@tsconfig/node18": "^18.2.2",
     "@types/node": "~18.15.11",
     "@types/tap": "^15.0.8",
     "@types/unzipper": "^0.10.5",
